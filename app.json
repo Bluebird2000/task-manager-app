@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "taskmanager-app",
-    "slug": "taskmanager-app",
+    "name": "task-manager-app",
+    "slug": "task-manager-app",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -11,11 +11,11 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "",
     "splash": {
-      "image": "./assets/splash2.png",
+      "image": "./assets/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
