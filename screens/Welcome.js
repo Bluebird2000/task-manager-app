@@ -150,8 +150,8 @@ export default class Welcome extends Component {
           <Button
             primary
             theme={theme}
-            onPress={() => navigation.navigate("LoginController")}
-            // onPress={() => navigation.navigate("VPN")}
+            // onPress={() => navigation.navigate("LoginController")}
+            onPress={() => navigation.navigate("ProjectController")}
           >
             <Text
               center

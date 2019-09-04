@@ -56,10 +56,11 @@ export default class LoginController extends Component {
   }
 
   async handleLogin() {
-    // const { navigation } = this.props;
+    const { navigation } = this.props;
     
     const { username, password, connected } = this.state;
     // this.setState({ connected: !connected });
+
     const errors = [];
     let payload = { username, password };
     const baseUrl = 'https://p-user-api-dev.quabbly.com/v1/auth/login';    
@@ -68,16 +69,16 @@ export default class LoginController extends Component {
 
     if (!username) errors.push('username');
     if (!password) errors.push('password');
-    this.setState({ errors, loading: false });   
+    this.setState({ errors, loading: false, connected: false });   
 
     if (!errors.length) {
-      this.setState({ loading: true });
-     await this.authenticateUserLoginDetails(payload, baseUrl);
+      this.setState({ loading: true, connected: connected });
+     await this.authenticateUserLoginDetails(payload, baseUrl, navigation);
     }
 
   }
 
-  async authenticateUserLoginDetails(payload, baseUrl) {
+  async authenticateUserLoginDetails(payload, baseUrl, navigation) {
     await axios({
         url: baseUrl,
         method: "post",
@@ -94,7 +95,7 @@ export default class LoginController extends Component {
           [
             {
               text: 'Continue', onPress: () => {
-                // navigation.navigate('DashBoard')
+                navigation.navigate('ProjectController')
               }
             }
           ],
@@ -108,7 +109,7 @@ export default class LoginController extends Component {
           [
             {
               text: 'Try again', onPress: () => {
-                // navigation.navigate('Login')
+                navigation.navigate('LoginController')
               }
             }
           ],
@@ -139,10 +140,10 @@ export default class LoginController extends Component {
           </Block>
 
           <Block center bottom flex={0.4} >
-          <Image
+          {/* <Image
             source={require('../assets/images/quabbly.png')}
             style={{ height: 38, width: 180, marginBottom: 30 }}
-          />
+          /> */}
             <Block
               flex={false}
               row
@@ -196,7 +197,7 @@ export default class LoginController extends Component {
               onPress={() => this.handleLogin()}
             >
                {loading ?
-                  <ActivityIndicator size="small" color="black" /> : 
+                  <ActivityIndicator size="small" color="white" /> : 
                   <Text
                     caption
                     center

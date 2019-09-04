@@ -1,5 +1,5 @@
 import images from "./images";
 import theme from "./theme";
-import servers from "./servers";
+import * as mocks from "./mocks";
 
-export { images, theme, servers };
+export { images, theme, mocks };

@@ -3,7 +3,7 @@ import { Utils } from "expo-ui-kit";
 const theme = {
   COLORS: {
     // base colors
-    primary: "#4630EB",
+    primary: "#7b68ee",
 
     // color variations
     gray: "#535453",
